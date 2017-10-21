@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="College_ABCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GradeData">
+    <Key>
+      <PropertyRef Name="AD_Index" />
+    </Key>
+    <Property Name="AD_Index" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD_UniversityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AD_CollegeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AD_FirstYearGradeLevel" Type="Int32" />
+    <Property Name="AD_SecondYearGradeLevel" Type="Int32" />
+    <Property Name="AD_ThirdYearGradeLevel" Type="Int32" />
+    <Property Name="AD_UniversityIndex" Type="Int32" />
+    <NavigationProperty Name="GradeData1" Relationship="College_ABCModel.FK_GradeData_GradeData" FromRole="GradeData" ToRole="GradeData1" />
+    <NavigationProperty Name="GradeData2" Relationship="College_ABCModel.FK_GradeData_GradeData" FromRole="GradeData1" ToRole="GradeData" />
+    <NavigationProperty Name="CollegeDetail" Relationship="College_ABCModel.FK_GradeData_CollegeDetails" FromRole="GradeData" ToRole="CollegeDetail" />
+  </EntityType>
+  <EntityType Name="RankingData">
+    <Key>
+      <PropertyRef Name="RD_Index" />
+    </Key>
+    <Property Name="RD_Index" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RD_Ranking" Type="Int32" Nullable="false" />
+    <Property Name="RD_Grade" Type="Int32" Nullable="false" />
+    <Property Name="RD_Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RD_Year" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="College_ABCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GradeDatas" EntityType="Self.GradeData" />
+    <EntitySet Name="RankingDatas" EntityType="Self.RankingData" />
+    <EntitySet Name="CollegeDetails" EntityType="College_ABCModel.CollegeDetail" />
+    <AssociationSet Name="FK_CollegeDetails_CollegeDetails" Association="College_ABCModel.FK_CollegeDetails_CollegeDetails">
+      <End Role="CollegeDetail" EntitySet="CollegeDetails" />
+      <End Role="CollegeDetail1" EntitySet="CollegeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GradeData_GradeData" Association="College_ABCModel.FK_GradeData_GradeData">
+      <End Role="GradeData" EntitySet="GradeDatas" />
+      <End Role="GradeData1" EntitySet="GradeDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GradeData_CollegeDetails" Association="College_ABCModel.FK_GradeData_CollegeDetails">
+      <End Role="CollegeDetail" EntitySet="CollegeDetails" />
+      <End Role="GradeData" EntitySet="GradeDatas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CollegeDetail">
+    <Key>
+      <PropertyRef Name="CD_Index" />
+    </Key>
+    <Property Name="CD_Index" Type="Int32" Nullable="false" />
+    <Property Name="CD_University" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CD_Course" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CD_Traffic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CD_ImageURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CD_DormitoryConditions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CollegeDetails1" Relationship="College_ABCModel.FK_CollegeDetails_CollegeDetails" FromRole="CollegeDetail" ToRole="CollegeDetail1" />
+    <NavigationProperty Name="CollegeDetail1" Relationship="College_ABCModel.FK_CollegeDetails_CollegeDetails" FromRole="CollegeDetail1" ToRole="CollegeDetail" />
+    <NavigationProperty Name="GradeDatas" Relationship="College_ABCModel.FK_GradeData_CollegeDetails" FromRole="CollegeDetail" ToRole="GradeData" />
+  </EntityType>
+  <Association Name="FK_CollegeDetails_CollegeDetails">
+    <End Type="College_ABCModel.CollegeDetail" Role="CollegeDetail" Multiplicity="1" />
+    <End Type="College_ABCModel.CollegeDetail" Role="CollegeDetail1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CollegeDetail">
+        <PropertyRef Name="CD_Index" />
+      </Principal>
+      <Dependent Role="CollegeDetail1">
+        <PropertyRef Name="CD_Index" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GradeData_GradeData">
+    <End Type="College_ABCModel.GradeData" Role="GradeData" Multiplicity="1" />
+    <End Type="College_ABCModel.GradeData" Role="GradeData1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="GradeData">
+        <PropertyRef Name="AD_Index" />
+      </Principal>
+      <Dependent Role="GradeData1">
+        <PropertyRef Name="AD_Index" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GradeData_CollegeDetails">
+    <End Type="College_ABCModel.CollegeDetail" Role="CollegeDetail" Multiplicity="0..1" />
+    <End Type="College_ABCModel.GradeData" Role="GradeData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CollegeDetail">
+        <PropertyRef Name="CD_Index" />
+      </Principal>
+      <Dependent Role="GradeData">
+        <PropertyRef Name="AD_UniversityIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

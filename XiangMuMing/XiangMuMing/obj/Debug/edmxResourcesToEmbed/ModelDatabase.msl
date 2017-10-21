@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="College_ABCModelStoreContainer" CdmEntityContainer="College_ABCEntities">
+    <EntitySetMapping Name="GradeDatas">
+      <EntityTypeMapping TypeName="College_ABCModel.GradeData">
+        <MappingFragment StoreEntitySet="GradeData">
+          <ScalarProperty Name="AD_Index" ColumnName="AD_Index" />
+          <ScalarProperty Name="AD_UniversityName" ColumnName="AD_UniversityName" />
+          <ScalarProperty Name="AD_CollegeName" ColumnName="AD_CollegeName" />
+          <ScalarProperty Name="AD_FirstYearGradeLevel" ColumnName="AD_FirstYearGradeLevel" />
+          <ScalarProperty Name="AD_SecondYearGradeLevel" ColumnName="AD_SecondYearGradeLevel" />
+          <ScalarProperty Name="AD_ThirdYearGradeLevel" ColumnName="AD_ThirdYearGradeLevel" />
+          <ScalarProperty Name="AD_DetailURL" ColumnName="AD_DetailURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RankingDatas">
+      <EntityTypeMapping TypeName="College_ABCModel.RankingData">
+        <MappingFragment StoreEntitySet="RankingData">
+          <ScalarProperty Name="RD_Index" ColumnName="RD_Index" />
+          <ScalarProperty Name="RD_Ranking" ColumnName="RD_Ranking" />
+          <ScalarProperty Name="RD_Grade" ColumnName="RD_Grade" />
+          <ScalarProperty Name="RD_Province" ColumnName="RD_Province" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

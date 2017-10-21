@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="College_ABCModelStoreContainer" CdmEntityContainer="College_ABCEntities">
+    <EntitySetMapping Name="GradeDatas">
+      <EntityTypeMapping TypeName="College_ABCModel.GradeData">
+        <MappingFragment StoreEntitySet="GradeData">
+          <ScalarProperty Name="AD_UniversityIndex" ColumnName="AD_UniversityIndex" />
+          <ScalarProperty Name="AD_Index" ColumnName="AD_Index" />
+          <ScalarProperty Name="AD_UniversityName" ColumnName="AD_UniversityName" />
+          <ScalarProperty Name="AD_CollegeName" ColumnName="AD_CollegeName" />
+          <ScalarProperty Name="AD_FirstYearGradeLevel" ColumnName="AD_FirstYearGradeLevel" />
+          <ScalarProperty Name="AD_SecondYearGradeLevel" ColumnName="AD_SecondYearGradeLevel" />
+          <ScalarProperty Name="AD_ThirdYearGradeLevel" ColumnName="AD_ThirdYearGradeLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RankingDatas">
+      <EntityTypeMapping TypeName="College_ABCModel.RankingData">
+        <MappingFragment StoreEntitySet="RankingData">
+          <ScalarProperty Name="RD_Year" ColumnName="RD_Year" />
+          <ScalarProperty Name="RD_Index" ColumnName="RD_Index" />
+          <ScalarProperty Name="RD_Ranking" ColumnName="RD_Ranking" />
+          <ScalarProperty Name="RD_Grade" ColumnName="RD_Grade" />
+          <ScalarProperty Name="RD_Province" ColumnName="RD_Province" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollegeDetails">
+      <EntityTypeMapping TypeName="College_ABCModel.CollegeDetail">
+        <MappingFragment StoreEntitySet="CollegeDetails">
+          <ScalarProperty Name="CD_DormitoryConditions" ColumnName="CD_DormitoryConditions" />
+          <ScalarProperty Name="CD_ImageURL" ColumnName="CD_ImageURL" />
+          <ScalarProperty Name="CD_Traffic" ColumnName="CD_Traffic" />
+          <ScalarProperty Name="CD_Course" ColumnName="CD_Course" />
+          <ScalarProperty Name="CD_University" ColumnName="CD_University" />
+          <ScalarProperty Name="CD_Index" ColumnName="CD_Index" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

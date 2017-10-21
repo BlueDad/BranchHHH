@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="College_ABCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GradeData">
+    <Key>
+      <PropertyRef Name="AD_Index" />
+    </Key>
+    <Property Name="AD_Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD_UniversityName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AD_CollegeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AD_FirstYearGradeLevel" Type="int" />
+    <Property Name="AD_SecondYearGradeLevel" Type="int" />
+    <Property Name="AD_ThirdYearGradeLevel" Type="int" />
+    <Property Name="AD_DetailURL" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RankingData">
+    <Key>
+      <PropertyRef Name="RD_Index" />
+    </Key>
+    <Property Name="RD_Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RD_Ranking" Type="int" Nullable="false" />
+    <Property Name="RD_Grade" Type="int" Nullable="false" />
+    <Property Name="RD_Province" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="College_ABCModelStoreContainer">
+    <EntitySet Name="GradeData" EntityType="Self.GradeData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RankingData" EntityType="Self.RankingData" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
