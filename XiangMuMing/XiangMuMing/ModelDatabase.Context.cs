@@ -28,5 +28,6 @@ namespace XiangMuMing
         public virtual DbSet<GradeData> GradeDatas { get; set; }
         public virtual DbSet<RankingData> RankingDatas { get; set; }
         public virtual DbSet<CollegeDetail> CollegeDetails { get; set; }
+        public virtual DbSet<Useless> Uselesses { get; set; }
     }
 }

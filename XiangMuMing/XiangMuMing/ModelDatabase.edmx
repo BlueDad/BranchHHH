@@ -38,6 +38,15 @@
           <Property Name="RD_Province" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="RD_Year" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Useless">
+          <Key>
+            <PropertyRef Name="Indx" />
+          </Key>
+          <Property Name="Indx" Type="int" Nullable="false" />
+          <Property Name="JiaGe" Type="int" Nullable="false" />
+          <Property Name="YouHuiQuan" Type="int" Nullable="false" />
+          <Property Name="YuFuDingJin" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_CollegeDetails_CollegeDetails">
           <End Role="CollegeDetails" Type="Self.CollegeDetails" Multiplicity="1" />
           <End Role="CollegeDetails1" Type="Self.CollegeDetails" Multiplicity="0..1" />
@@ -66,6 +75,7 @@
           <EntitySet Name="CollegeDetails" EntityType="Self.CollegeDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GradeData" EntityType="Self.GradeData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RankingData" EntityType="Self.RankingData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Useless" EntityType="Self.Useless" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CollegeDetails_CollegeDetails" Association="Self.FK_CollegeDetails_CollegeDetails">
             <End Role="CollegeDetails" EntitySet="CollegeDetails" />
             <End Role="CollegeDetails1" EntitySet="CollegeDetails" />
@@ -120,6 +130,7 @@
             <End Role="CollegeDetail" EntitySet="CollegeDetails" />
             <End Role="GradeData" EntitySet="GradeDatas" />
           </AssociationSet>
+          <EntitySet Name="Uselesses" EntityType="College_ABCModel.Useless" />
         </EntityContainer>
         <EntityType Name="CollegeDetail">
           <Key>
@@ -171,6 +182,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Useless">
+          <Key>
+            <PropertyRef Name="Indx" />
+          </Key>
+          <Property Name="Indx" Type="Int32" Nullable="false" />
+          <Property Name="JiaGe" Type="Int32" Nullable="false" />
+          <Property Name="YouHuiQuan" Type="Int32" Nullable="false" />
+          <Property Name="YuFuDingJin" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -210,6 +230,16 @@
                 <ScalarProperty Name="CD_Course" ColumnName="CD_Course" />
                 <ScalarProperty Name="CD_University" ColumnName="CD_University" />
                 <ScalarProperty Name="CD_Index" ColumnName="CD_Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uselesses">
+            <EntityTypeMapping TypeName="College_ABCModel.Useless">
+              <MappingFragment StoreEntitySet="Useless">
+                <ScalarProperty Name="YuFuDingJin" ColumnName="YuFuDingJin" />
+                <ScalarProperty Name="YouHuiQuan" ColumnName="YouHuiQuan" />
+                <ScalarProperty Name="JiaGe" ColumnName="JiaGe" />
+                <ScalarProperty Name="Indx" ColumnName="Indx" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

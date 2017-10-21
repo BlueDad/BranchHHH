@@ -225,6 +225,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDatabase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataEntities.cs" />
+    <Compile Include="Models\Data.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -233,6 +235,9 @@
       <DependentUpon>ModelDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Useless.cs">
+      <DependentUpon>ModelDatabase.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
