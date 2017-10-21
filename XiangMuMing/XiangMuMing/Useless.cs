@@ -15,8 +15,10 @@ namespace XiangMuMing
     public partial class Useless
     {
         public int Indx { get; set; }
-        public int JiaGe { get; set; }
-        public int YouHuiQuan { get; set; }
-        public int YuFuDingJin { get; set; }
+        public double JiaGe { get; set; }
+        public double YuFuDingJinDiDuoShao { get; set; }
+        public double XiaDanLiJian { get; set; }
+        public string MingZi { get; set; }
+        public double YuFuDingJin { get; set; }
     }
 }

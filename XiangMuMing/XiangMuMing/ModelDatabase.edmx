@@ -43,9 +43,11 @@
             <PropertyRef Name="Indx" />
           </Key>
           <Property Name="Indx" Type="int" Nullable="false" />
-          <Property Name="JiaGe" Type="int" Nullable="false" />
-          <Property Name="YouHuiQuan" Type="int" Nullable="false" />
-          <Property Name="YuFuDingJin" Type="int" Nullable="false" />
+          <Property Name="JiaGe" Type="float" Nullable="false" />
+          <Property Name="YuFuDingJinDiDuoShao" Type="float" Nullable="false" />
+          <Property Name="XiaDanLiJian" Type="float" Nullable="false" />
+          <Property Name="MingZi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="YuFuDingJin" Type="float" Nullable="false" />
         </EntityType>
         <Association Name="FK_CollegeDetails_CollegeDetails">
           <End Role="CollegeDetails" Type="Self.CollegeDetails" Multiplicity="1" />
@@ -187,9 +189,11 @@
             <PropertyRef Name="Indx" />
           </Key>
           <Property Name="Indx" Type="Int32" Nullable="false" />
-          <Property Name="JiaGe" Type="Int32" Nullable="false" />
-          <Property Name="YouHuiQuan" Type="Int32" Nullable="false" />
-          <Property Name="YuFuDingJin" Type="Int32" Nullable="false" />
+          <Property Name="JiaGe" Type="Double" Nullable="false" />
+          <Property Name="YuFuDingJinDiDuoShao" Type="Double" Nullable="false" />
+          <Property Name="XiaDanLiJian" Type="Double" Nullable="false" />
+          <Property Name="MingZi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YuFuDingJin" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -237,7 +241,9 @@
             <EntityTypeMapping TypeName="College_ABCModel.Useless">
               <MappingFragment StoreEntitySet="Useless">
                 <ScalarProperty Name="YuFuDingJin" ColumnName="YuFuDingJin" />
-                <ScalarProperty Name="YouHuiQuan" ColumnName="YouHuiQuan" />
+                <ScalarProperty Name="MingZi" ColumnName="MingZi" />
+                <ScalarProperty Name="XiaDanLiJian" ColumnName="XiaDanLiJian" />
+                <ScalarProperty Name="YuFuDingJinDiDuoShao" ColumnName="YuFuDingJinDiDuoShao" />
                 <ScalarProperty Name="JiaGe" ColumnName="JiaGe" />
                 <ScalarProperty Name="Indx" ColumnName="Indx" />
               </MappingFragment>
